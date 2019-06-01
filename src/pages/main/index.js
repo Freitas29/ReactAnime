@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./styles.css"
 import api from '../../services/api'
+import { Link } from 'react-router-dom'
 
 export default class Main extends Component{
    
@@ -28,7 +29,7 @@ export default class Main extends Component{
                        <strong>{anime.title}</strong>
                        <p>{anime.description}</p>
 
-                       <a href="#">Mais detalhe</a>
+                       <Link to={`/animes/${anime.id}`}>Mais detalhes</Link>
                    </card>
                ))} 
             </div>

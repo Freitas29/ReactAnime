@@ -4,11 +4,13 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom'
 
 
 import Main from './pages/main';
+import Anime from './pages/animes';
 
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            <Route path="/" component={Main}></Route>
+            <Route exact path="/" component={Main}></Route>
+            <Route path="/animes/:id" component={Anime}></Route>
         </Switch>
     </BrowserRouter>
 );
