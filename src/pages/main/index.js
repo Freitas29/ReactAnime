@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import "./styles.css"
 import api from '../../services/api'
 
 export default class Main extends Component{
@@ -19,10 +19,17 @@ export default class Main extends Component{
     };
    
     render(){
+        const { animes } = this.state;
+       
         return(
             <div className="anime-list">
-               {this.state.animes.map(anime => (
-                   <h2 key={anime.id}>{anime.title}</h2>
+               {animes.map(anime => (
+                   <card key={anime.id}>
+                       <strong>{anime.title}</strong>
+                       <p>{anime.description}</p>
+
+                       <a href="#">Mais detalhe</a>
+                   </card>
                ))} 
             </div>
         )
