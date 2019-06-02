@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 import './index.css'
 
-const Header = () => (
-    <header>Anime review</header>
-)
 
+export default class Header extends Component{
+    render(){
+        return(
+            <header>
+                <ul>
+                    <a href="/signIn">Cadastrar-se</a>   
+                </ul>
+            </header>
+        )
+    }
+}
 
-export default Header;
