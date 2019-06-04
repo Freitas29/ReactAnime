@@ -5,8 +5,8 @@ export default class SignUp extends Component{
     render(){
         return(
             <Form
+            action="registrations"
             buttonName="Registrar-se"
-            action="/register"
             />
         )
     }

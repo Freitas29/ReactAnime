@@ -6,8 +6,8 @@ export default class SignIn extends Component{
     render(){
         return(
             <Form
-            action="/sessions"
-            buttonName="Cadastrar-se"/>
+            action="sessions"
+            buttonName="Logar-se"/>
         )
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+
 
 import './index.css'
 
@@ -9,7 +9,8 @@ export default class Header extends Component{
         return(
             <header>
                 <ul>
-                    <a href="/signIn">Cadastrar-se</a>   
+                    <a href="/signIn">Logar-se</a>
+                    <a href="/signUp">Cadastrar-se</a>   
                 </ul>
             </header>
         )

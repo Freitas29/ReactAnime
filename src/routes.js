@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import Main from './pages/main';
 import Anime from './pages/animes';
 import SignIn from './pages/sign-in'
+import SignUp from './pages/sign-up'
 
 const Routes = () => (
     <BrowserRouter>
@@ -13,6 +14,7 @@ const Routes = () => (
             <Route exact path="/" component={ Main }></Route>
             <Route path="/animes/:id" component={ Anime }></Route>
             <Route path="/signIn" component={ SignIn }></Route>
+            <Route path="/signUp" component={ SignUp }></Route>
         </Switch>
     </BrowserRouter>
 );

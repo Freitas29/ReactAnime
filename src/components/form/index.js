@@ -2,10 +2,18 @@ import React, { Component } from 'react'
 import api from '../../services/api'
 
 export default class Form extends Component{
+    
+    constructor(props){
+        super(props);
+        this.state = {action: props.action}
+        this.handleLogin.bind(props)
+    }
+
     state = {
         name: "",
         password: "",
         email: "",
+        action: "",
     }
 
     handleName = (e) => {
@@ -20,15 +28,16 @@ export default class Form extends Component{
         this.setState({email: e.target.value})
     }
 
-    handleLogin = async () => {
-        const response = await api.post('http://localhost:3001/api/v1/sessions', {
+    handleLogin = async (props) => {
+        await api.post(`http://localhost:3001/api/v1/${this.state.action}`, {
             email: this.state.email,
+            name: this.state.name,
             password: this.state.password
         }).then(function (response){
             const {status} = response
-            alert(status)
+            console.log(status)
         }).catch(function (response){
-            alert('caiu no erro');
+            console.log(response)
         })
 
         
@@ -36,7 +45,7 @@ export default class Form extends Component{
     
     render(){
         return(
-            <form action={this.props.action} method="POST">
+            <form>
                 <label>Nome</label>
                 <input placeholder="Digite seu nome" onChange={(e) => this.handleName(e)}/>
 
