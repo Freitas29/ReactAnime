@@ -6,7 +6,7 @@ export default class SignIn extends Component{
     render(){
         return(
             <Form
-            action="sessions"
+            action="/auth/login"
             buttonName="Logar-se"/>
         )
     }

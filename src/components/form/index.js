@@ -29,17 +29,17 @@ export default class Form extends Component{
     }
 
     handleLogin = async (props) => {
-        await api.post(`http://localhost:3001/api/v1/${this.state.action}`, {
+        await api.post(`http://localhost:3001/api${this.state.action}`, {
             email: this.state.email,
             name: this.state.name,
             password: this.state.password
         }).then(function (response){
             const {status} = response
+            localStorage.setItem("current_user",response.data.token)
             console.log(status)
         }).catch(function (response){
             console.log(response)
         })
-
         
     }
     
