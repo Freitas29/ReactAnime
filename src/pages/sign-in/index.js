@@ -38,6 +38,7 @@ export default class SignIn extends Component{
             if(response.data.error){
                 this.setState({ error: response.data.error})
             }else{
+                console.log("Resposta",response)
                 this.props.history.push("/animes")
                 localStorage.setItem("current_user",response.data.token)
             }

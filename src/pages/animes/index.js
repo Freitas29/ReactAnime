@@ -8,10 +8,10 @@ export default class extends Component{
     };
 
     async componentDidMount() {
-        const { id } = this.props.match.params;
-        const response = await api.get(`http://localhost:3001/api/v1/animes/${id}`)
+        const response = await api.get(`http://localhost:3001/api/animes/`,{
+            headers: {authorization: "Bearer "+localStorage.getItem('current_user') }
+        })
         this.setState({anime: response.data})
-
         console.log(response.data)
     }
     
