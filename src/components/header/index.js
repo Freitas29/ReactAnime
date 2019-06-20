@@ -23,7 +23,7 @@ export default class Header extends Component{
                 </li>
                 
                 <li>
-                <a href="/signI0p">Logar-se</a>
+                <a href="/signIn">Logar-se</a>
                 </li>
             </ul>  
                 
