@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 
-
-import './index.css'
+import { HeaderStyled } from './header'
 
 
 export default class Header extends Component{
     render(){
         return(
-            <header>
-                <ul>
-                    <a href="/signIn">Logar-se</a>
-                    <a href="/signUp">Cadastrar-se</a>   
-                </ul>
-            </header>
+            <HeaderStyled>
+                <div class="logo">
+                    <a>Logo qualquer</a>
+                </div>
+
+                <div class="links">
+                    <ul>
+                        <li>
+                            <a href="/signIn">Logar-se</a>
+                        </li>
+                        <li>
+                            <a href="/signUp">Cadastrar-se</a>
+                        </li>
+                    </ul>
+                </div>
+            </HeaderStyled>
         )
     }
 }
