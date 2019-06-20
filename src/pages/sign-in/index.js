@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import api from '../../services/api'
-import Button from 'react-bootstrap/Button'
+import Button from '../../components/button/index'
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 
@@ -59,20 +59,15 @@ export default class SignIn extends Component{
                     
                     <Form.Group >
                         <Form.Label>
-                            Nome
-                        </Form.Label>
-                        <Form.Control type="nome" placeholder="Digite seu nome" onChange={(e) => this.handleName(e)}/>
-                    </Form.Group>
-                    
-                    <Form.Group >
-                        <Form.Label>
                             Senha
                         </Form.Label>
                         <Form.Control type="password" placeholder="*****" onChange={(e) => this.handlePassword(e)}/>
                     </Form.Group>
-                    <Button variant="primary" onClick={(e) => this.handleLogin()}>
+                    <Button onClick={(e) => this.handleLogin()}>
                         Logar
                     </Button>
+
+
                 </Form>
             </Container>
         )
