@@ -1,10 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-import './index.css'
+import { HeaderStyled } from './header'
+import { isAuth } from '../../utils/isAuth'
 
-const Header = () => (
-    <header>Anime review</header>
-)
+export default class Header extends Component{
+    
+
+    render(){
 
 
-export default Header;
+        const menu = (
+            isAuth()? 
+            <ul>
+                <li>
+                    <a href="/animes">Animes</a>
+                </li>
+            </ul>
+            :
+            <ul>
+                <li>
+                    <a href="/signUp">Cadastrar-se</a>
+                </li>
+                
+                <li>
+                <a href="/signIn">Logar-se</a>
+                </li>
+            </ul>  
+                
+        )
+
+        return(
+            <HeaderStyled>
+                <div class="logo">
+                    <a href="/">Logo qualquer</a>
+                </div>
+
+                <div class="links">
+                        {menu} 
+                </div>
+            </HeaderStyled>
+        )
+    }
+}
+
