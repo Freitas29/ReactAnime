@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import api from '../../services/api'
-
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
 
 export default class SignIn extends Component{
     constructor(props){
@@ -35,7 +37,6 @@ export default class SignIn extends Component{
             if(response.data.error){
                 alert(response.data.error)
             }else{
-                debugger
                 this.props.history.push("/animes")
                 localStorage.setItem("current_user",response.data.token)
                 return
@@ -47,18 +48,33 @@ export default class SignIn extends Component{
 
     render(){
         return(
-            <form>
-                <label>Nome</label>
-                <input placeholder="Digite seu nome" onChange={(e) => this.handleName(e)}/>
-
-                <label>E-mail</label>
-                <input placeholder="Digite seu email" onChange={(e) => this.handleEmail(e)}/>
-
-                <label>Senha</label>
-                <input type="password" placeholder="*********" onChange={(e) => this.handlePassword(e)}/>
-
-                <button type="button" onClick={(e) => this.handleLogin()}>Logar</button>
-            </form>
+            <Container>
+                <Form>
+                    <Form.Group >
+                        <Form.Label>
+                            E-mail
+                        </Form.Label>
+                        <Form.Control type="email" placeholder="Digite seu email" onChange={(e) => this.handleEmail(e)}/>
+                    </Form.Group>
+                    
+                    <Form.Group >
+                        <Form.Label>
+                            Nome
+                        </Form.Label>
+                        <Form.Control type="nome" placeholder="Digite seu nome" onChange={(e) => this.handleName(e)}/>
+                    </Form.Group>
+                    
+                    <Form.Group >
+                        <Form.Label>
+                            Senha
+                        </Form.Label>
+                        <Form.Control type="password" placeholder="*****" onChange={(e) => this.handlePassword(e)}/>
+                    </Form.Group>
+                    <Button variant="primary" onClick={(e) => this.handleLogin()}>
+                        Logar
+                    </Button>
+                </Form>
+            </Container>
         )
     }
 }
