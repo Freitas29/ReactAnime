@@ -8,7 +8,7 @@ export default class Header extends Component{
         return(
             <HeaderStyled>
                 <div class="logo">
-                    <a>Logo qualquer</a>
+                    <a href="/">Logo qualquer</a>
                 </div>
 
                 <div class="links">
