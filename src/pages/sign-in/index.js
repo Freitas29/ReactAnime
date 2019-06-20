@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import api from '../../services/api'
-import Button from '../../components/button/index'
-import Form from 'react-bootstrap/Form'
+import Button from '../../components/button/'
+import { Form } from '../../components/form/'
+import { Alert } from '../../components/alert'
 import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 export default class SignIn extends Component{
     constructor(props){
@@ -10,15 +13,12 @@ export default class SignIn extends Component{
     }
 
     state = {
-        name: "",
         password: "",
         email: "",
-        action: "",
+        error: false,
     }
 
-    handleName = (e) => {
-        this.setState({name: e.target.value})
-    }
+    
 
     handlePassword = (e) =>{
         this.setState({password: e.target.value})
@@ -28,47 +28,72 @@ export default class SignIn extends Component{
         this.setState({email: e.target.value})
     }
 
-    handleLogin = async () => {
+    handleLogin = async (e) => {
+        e.preventDefault()
         await api.post('http://localhost:3001/api/auth/login', {
             email: this.state.email,
             name: this.state.name,
             password: this.state.password
         }).then((response) => {
             if(response.data.error){
-                alert(response.data.error)
+                this.setState({ error: response.data.error})
             }else{
                 this.props.history.push("/animes")
                 localStorage.setItem("current_user",response.data.token)
-                return
             }
         }).catch((response) => {
             console.log(response)
         })
     }
+    
+
+    handleAlert = () => {
+        if(this.state.error){    
+            return(
+                <Alert warning >
+                    { this.state.error }
+                </Alert>
+            )
+        }
+    }
+
 
     render(){
         return(
-            <Container>
-                <Form>
-                    <Form.Group >
-                        <Form.Label>
-                            E-mail
-                        </Form.Label>
-                        <Form.Control type="email" placeholder="Digite seu email" onChange={(e) => this.handleEmail(e)}/>
-                    </Form.Group>
-                    
-                    <Form.Group >
-                        <Form.Label>
-                            Senha
-                        </Form.Label>
-                        <Form.Control type="password" placeholder="*****" onChange={(e) => this.handlePassword(e)}/>
-                    </Form.Group>
-                    <Button onClick={(e) => this.handleLogin()}>
-                        Logar
-                    </Button>
+            <Container fluid>
+                <Row>
+                    <Form>
+                        <Col md={6}>
+                            <div id="firstPart">
+                                <img class="img-fluid" src="https://images.wallpaperscraft.com/image/hanyijie_sky_scenery_ship_anime_art_104162_1920x1080.jpg" />                  
+                            </div>
+                        </Col>
+                        <Col md={6}>
+                        <div id="secondPart">
+                            { this.handleAlert() }    
+                                <h1>
+                                    Faça seu login agora mesmo!
+                                </h1>
+                                <p>
+                                    Entre para conhecer mais sobre nossa comunidade incrivel!
+                                </p>
+
+                                <div id="fields">
+                                    <div id="field-group">
+                                        <input type="email" placeholder="E-mail" onChange={e => this.handleEmail(e)}/>
+                                    </div>
+                                    <div id="field-group">
+                                        <input type="password" placeholder="*******" onChange={e => this.handlePassword(e)}/>
+                                    </div>
 
 
-                </Form>
+                                    <Button dark onClick={e => this.handleLogin(e)}>Entrar</Button>
+                                    <Button warning>Registrar-se</Button>
+                                </div>
+                            </div>    
+                        </Col>
+                    </Form>
+                </Row>
             </Container>
         )
     }
