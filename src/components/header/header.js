@@ -30,14 +30,15 @@ export const HeaderStyled  = styled.header`
             li{
                 border-bottom: 2px solid transparent;
                 transition: all 0.5s;
-                cursor: pointer;
                 
                 :hover{
                     border-bottom: 1.6px solid #ff5a5f;
                     animation-duration: 2s;
+                    cursor: pointer;
                 }
 
                 a{
+                    cursor: pointer;
                     font-size: 17px;
                     line-height: 36px;
                      color: #484848;
