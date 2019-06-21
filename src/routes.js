@@ -7,6 +7,8 @@ import Main from './pages/main';
 import Anime from './pages/animes';
 import SignIn from './pages/sign-in'
 import SignUp from './pages/sign-up'
+import Header from './components/header'
+import AnimeNew from './pages/animes/new'
 
 const PrivateRoute = ({component: Component, ...rest}) => {
     return (
@@ -16,16 +18,18 @@ const PrivateRoute = ({component: Component, ...rest}) => {
         <Route {...rest} render={props => (
             isAuth() ?
                 <Component {...props} />
-            : <Redirect to="/signin" />
+            : <Redirect to="/signIn" />
         )} />
     );
 };
 
 const Routes = () => (
     <BrowserRouter>
+        <Header/>
         <Switch>
-            <Route exact path="/" component={ Main }></Route>
+          <Route exact path="/" component={ Main }></Route>
             <PrivateRoute exact path="/animes" component={ Anime }></PrivateRoute>
+            <PrivateRoute exact path="/animes/new" component={ AnimeNew }></PrivateRoute>
             <Route path="/signIn" component={ SignIn }></Route>
             <Route path="/signUp" component={ SignUp }></Route>
         </Switch>

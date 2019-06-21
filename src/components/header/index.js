@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { HeaderStyled } from './header'
 import { isAuth } from '../../utils/isAuth'
-
+import { Link } from 'react-router-dom'
 export default class Header extends Component{
     
 
@@ -13,17 +13,20 @@ export default class Header extends Component{
             isAuth()? 
             <ul>
                 <li>
-                    <a href="/animes">Animes</a>
+                    <Link to="/animes">Animes</Link>
+                </li>
+                <li>
+                    <Link to="/animes/new">Criar anime</Link>
                 </li>
             </ul>
             :
             <ul>
                 <li>
-                    <a href="/signUp">Cadastrar-se</a>
+                    <Link to="/signUp">Cadastrar-se</Link>
                 </li>
                 
                 <li>
-                <a href="/signIn">Logar-se</a>
+                <Link to="/signIn">Logar-se</Link>
                 </li>
             </ul>  
                 
@@ -32,7 +35,7 @@ export default class Header extends Component{
         return(
             <HeaderStyled>
                 <div class="logo">
-                    <a href="/">Logo qualquer</a>
+                    <Link to="/">Logo qualquer</Link>
                 </div>
 
                 <div class="links">

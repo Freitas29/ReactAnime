@@ -19,7 +19,21 @@ export const Card = styled.div`
         z-index:10;
     }
 
+    .input-left, .toggle-left{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        bottom: 50px;
+        left: 50px;
+        outline: none;
+        z-index:10;
+    }
+
     input{
+        opacity: 0;
+    }
+
+    .input-left{
         opacity: 0;
     }    
 
@@ -34,9 +48,18 @@ export const Card = styled.div`
         box-shadow: 0 0 0 0px #9c27b0;
     }
 
+    .toggle-left{
+        border-radius: 60%;
+        background: #fff;
+        transition: 0.5s;
+        text-align:center;
+        line-height: 50px;
+        font-size: 16px;
+        box-shadow: 0 0 0 0px #9c27b0;
+    }
 
     input:checked ~ .toggle{
-        box-shadow: 0 0 0 500px #9c27b0;
+        box-shadow: 0 0 0 500px #ff5a5f;
         transform: rotate(225deg);
     }
 
@@ -67,10 +90,13 @@ export const Card = styled.div`
         margin-bottom: 5px;
         color:#fff;
     }
+    
 
     .details p{
         margin: 0;
         padding: 0;
         color:#fff;
+        width: 100%;
+        overflow-wrap: break-word;
     }
 `

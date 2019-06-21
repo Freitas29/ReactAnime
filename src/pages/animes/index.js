@@ -27,7 +27,7 @@ export default class extends Component{
                     <input type="checkbox" />
                     <div className="toggle">+</div>
                     <div className="imgCard">
-                        <img src="#" />
+                        <img src="#"/>
                     </div>
                     <div className="details">
                         <h2>

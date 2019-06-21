@@ -4,12 +4,74 @@ export const Form = styled.form`
     display: flex;
     width: 100%;
     color: #484848;
+    margin-top:2%;
     height: 90vh;
     overflow:hidden;
     background-color: #fff;
+
+    input{
+            width: 100%;
+            font-size: 17px;
+            line-height: 1.5;
+            color: #222326;
+            background-color: #fff;
+            border:none;
+            border-bottom: 2px solid #ebebeb;
+            font-weight: bold;
+            border-radius: 2%;
+            margin: 1rem;
+            transition: all 0.5s ease;
+            outline: none;
+            height: 48px;
+            padding: 1em;
+
+            :focus{
+                border-bottom: 3px solid #ff5a5f;
+            }
+    }
+
+    textarea{
+        width: 100%;
+        height: 40%;
+        font-size: 17px;
+        color: #222326;
+        background-color:#fff;
+        border: none;
+        border-bottom:2px solid #ddd;
+        border-radius: 6px;
+        font-weight:bold;
+        transition: all 0.5 ease;
+        outline: none;
+        padding: 1em;
+
+        :focus{
+            border-bottom: 3px solid #ff5a5f;
+        }
+    }
+
+    input[type='file']{
+        display:none;
+
+        
+    }
+
+    #forFile{
+        margin-top:2%;
+        width: 100%;
+        font-size: 17px;
+        color: #222326;
+        background-color:#fff;
+        border:2px solid #ddd;
+        border-radius: 6px;
+        font-weight:bold;
+        transition: all 0.5 ease;
+        outline: none;
+        padding: 1em;
+    }
+
    
     #firstPart{
-        background-color: #ff5a5f;
+        background-color: ${props => props.default ? "#fff" : "#ff5a5f"};
         height: 100%;
         display:flex;
         align-items:center;
@@ -63,25 +125,7 @@ export const Form = styled.form`
             margin-top: 0px;
         }
 
-        input{
-            width: 100%;
-            font-size: 17px;
-            line-height: 1.5;
-            color: #222326;
-            background-color: #fff;
-            border:none;
-            border-bottom: 2px solid #ebebeb;
-            font-weight: bold;
-            border-radius: 2%;
-            margin: 1rem;
-            transition: all 0.5s ease;
-            outline: none;
-            height: 48px;
-            padding: 1em;
-
-            :focus{
-                border-bottom: 3px solid #ff5a5f;
-            }
-        }
+        
+        
     }
 `
