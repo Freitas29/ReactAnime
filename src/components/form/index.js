@@ -7,15 +7,31 @@ export const Form = styled.form`
     height: 90vh;
     overflow:hidden;
     background-color: #fff;
-
+   
     #firstPart{
-        padding: 4rem;
-        background-color: #fff;
+        background-color: #ff5a5f;
         height: 100%;
-        
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-wrap: wrap;
         img{
             border-radius: 14px;
             height:100%;
+        }
+
+        h1{
+            text-transform: uppercase;
+            color:white;
+            font-family: 'Mali', cursive;
+            border-bottom: 2px solid white;
+            border-radius: 5%;
+        }
+
+        p{
+            
+            font-family: 'Mali', cursive;
+            color:white;
         }
     }
 

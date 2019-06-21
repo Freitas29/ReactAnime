@@ -6,6 +6,7 @@ import { Alert } from '../../components/alert'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { Link } from 'react-router-dom'
 
 export default class SignIn extends Component{
     constructor(props){
@@ -89,7 +90,9 @@ export default class SignIn extends Component{
 
 
                                     <Button dark onClick={e => this.handleLogin(e)}>Entrar</Button>
-                                    <Button warning>Registrar-se</Button>
+                                    <Link to="signUp/">
+                                        <Button warning>Registrar-se</Button>
+                                    </Link>
                                 </div>
                             </div>    
                         </Col>
