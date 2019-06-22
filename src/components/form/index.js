@@ -7,27 +7,13 @@ export const Form = styled.form`
     margin-top:2%;
     height: 90vh;
     overflow:hidden;
-    background-color: #fff;
+    
+    .actions{
+        margin-top: 5%;
+    }
 
-    input{
-            width: 100%;
-            font-size: 17px;
-            line-height: 1.5;
-            color: #222326;
-            background-color: #fff;
-            border:none;
-            border-bottom: 2px solid #ebebeb;
-            font-weight: bold;
-            border-radius: 2%;
-            margin: 1rem;
-            transition: all 0.5s ease;
-            outline: none;
-            height: 48px;
-            padding: 1em;
-
-            :focus{
-                border-bottom: 3px solid #ff5a5f;
-            }
+    .form-body{
+        width: 100%;
     }
 
     textarea{

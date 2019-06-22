@@ -1,6 +1,60 @@
-import styled from 'styled-components'
+import styled,{css} from 'styled-components'
 
 export const Card = styled.div`
+    ${
+        props => props.large && css`
+            height: 80vh !important;
+            width: 100% !important;
+            padding: 14px 12px;
+            background-color: rgb(255, 255, 255) !important;
+            border:1px solid transparent;
+            transition: all 0.5s ease;
+            
+            label{
+                font-size: 12px;
+                color: rgba(0,0,0,.84);
+            }
+
+            .img-fluid{
+                border-radius: 6px;
+            }
+
+            h4{
+                padding: 3px 6px;
+                margin-top: 6px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.25;
+                letter-spacing: 0;
+                font-size: 20px;
+                color: rgba(0,0,0,.84);
+                text-transform: uppercase;
+
+            }
+
+            p{
+                font-size: 12px;
+                text-transform: uppercase;
+                /* color: rgba(0,0,0,.54);
+                line-height: 28px; */
+                color: rgba(0,0,0,.54);
+                height: 23%;
+                overflow:hidden; 
+                text-overflow: ellipsis;
+                line-height: 20px;
+            }
+
+            :hover{
+                background-color: rgb(255, 255, 255);
+                border-radius:6px;
+                border: 2px solid #ddd;
+                transform: scale(1.02);
+                z-index:11;
+            }
+        `
+    }   
+
+
     margin-top: 2%;
     position: relative;
     width:300px;
@@ -99,4 +153,6 @@ export const Card = styled.div`
         width: 100%;
         overflow-wrap: break-word;
     }
+
+    
 `

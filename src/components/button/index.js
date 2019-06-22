@@ -9,12 +9,11 @@ const Button = styled.button`
     padding: 0.50em 1.2em;
     font-size: 14px;
     line-height: 1;
-    border-radius: 500px;
     padding: 16px 48px 18px;
     transition-duration: .3s;
     border-width: 0;
     letter-spacing: 2px;
-    min-width: 160px;
+    width: ${props => props.size || '20%'};
     text-transform: uppercase;
     white-space: normal;
 

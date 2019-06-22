@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import './index.css'
 import api from '../../services/api'
 import Button from '../../components/button/'
 import { Form } from '../../components/form/'
 import { Alert } from '../../components/alert'
 import Container from 'react-bootstrap/Container'
+import { Input } from '../../components/input'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
-
 export default class SignIn extends Component{
     constructor(props){
         super(props)
@@ -63,41 +64,34 @@ export default class SignIn extends Component{
     render(){
         return(
             <Container fluid>
-                <Row>
-                    <Form>
+                    <Row>
                         <Col md={6}>
-                            <div id="firstPart">
-                                <img class="img-fluid" src="https://images.wallpaperscraft.com/image/hanyijie_sky_scenery_ship_anime_art_104162_1920x1080.jpg" />                  
+                        <Form>
+                        <div id="formBorder">    
+                            <div className="form-body">
+
+                            <Input type="email" noBorderPrimaryMd placeholder="E-mail" onChange={e => this.handleEmail(e)}/>
+                
+                            <Input type="password" noBorderPrimaryMd onChange={e => this.handlePassword(e)}/>
+                        </div>
+                        
+                            <div className="actions">                            
+                                <Button dark onClick={e => this.handleLogin(e)}>Entrar</Button>
+
+                                <Link to="signUp/">                                    
+                                    <Button warning>Registrar-se</Button>
+                                </Link>
                             </div>
+                            
+                        </div>
+                        </Form>
                         </Col>
+
                         <Col md={6}>
-                        <div id="secondPart">
-                            { this.handleAlert() }    
-                                <h1>
-                                    Faça seu login agora mesmo!
-                                </h1>
-                                <p>
-                                    Entre para conhecer mais sobre nossa comunidade incrivel!
-                                </p>
-
-                                <div id="fields">
-                                    <div id="field-group">
-                                        <input type="email" placeholder="E-mail" onChange={e => this.handleEmail(e)}/>
-                                    </div>
-                                    <div id="field-group">
-                                        <input type="password" placeholder="*******" onChange={e => this.handlePassword(e)}/>
-                                    </div>
-
-
-                                    <Button dark onClick={e => this.handleLogin(e)}>Entrar</Button>
-                                    <Link to="signUp/">
-                                        <Button warning>Registrar-se</Button>
-                                    </Link>
-                                </div>
-                            </div>    
+                            aakdlasçkd
                         </Col>
-                    </Form>
-                </Row>
+                    </Row>
+                
             </Container>
         )
     }

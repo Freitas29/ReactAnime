@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Routes from './routes'
-import "./styles.css"
 import Main from './pages/main'
+import './styles.css'
 
 function App() {
   return (

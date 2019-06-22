@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 export const Card = styled.div`
     margin-top: 2%;
@@ -99,4 +99,7 @@ export const Card = styled.div`
         width: 100%;
         overflow-wrap: break-word;
     }
+
+
+    
 `

@@ -14,7 +14,7 @@ export default class Main extends Component{
     }
     
     loadAnimes = async () => {
-        const response = await api.get('http://localhost:3001/api/v1/animes');
+        const response = await api.get('http://localhost:3001/api/animes');
         this.setState({ animes: response.data })
         console.log(response.data)
     };
