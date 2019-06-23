@@ -5,7 +5,7 @@ export const Form = styled.form`
     width: 100%;
     color: #484848;
     margin-top:2%;
-    height: 90vh;
+    height: auto;
     overflow:hidden;
     
     .actions{

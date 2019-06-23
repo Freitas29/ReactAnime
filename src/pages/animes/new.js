@@ -5,12 +5,16 @@ import Row from 'react-bootstrap/Row'
 import {Form} from '../../components/form'
 import {Card} from '../../components/card'
 import Button from '../../components/button'
+import {Input, TextArea} from '../../components/input'
+import Axios from 'axios';
 
 export default class AnimeNew extends Component{
 
     state = {
         title: '',
-        description: ''
+        littleDescription: '',
+        description: '',
+        image: null,
     }
 
     handleTitle = (e) => {
@@ -21,6 +25,10 @@ export default class AnimeNew extends Component{
         this.setState({description: e.target.value})
     }
 
+    handleLittleDescription = (e) => {
+        this.setState({littleDescription: e.target.value})
+    }
+
     previewImage(e){
         if (e.currentTarget.files && e.currentTarget.files[0]) {
             var reader = new FileReader();
@@ -28,10 +36,38 @@ export default class AnimeNew extends Component{
             reader.onload = (photo) => {
                 document.querySelector('.imgCard img').src = photo.target.result;
             }
-    
+            
+            this.setState({image: e.currentTarget.files[0]})
             reader.readAsDataURL(e.currentTarget.files[0]);
     
         }
+    }
+
+
+    formatDate = () =>{
+        let d = new Date();
+        let month = d.getMonth()+1;
+
+        return d.getDate()+"/"+month+"/"+d.getFullYear()
+    }
+
+
+    handleSave = (e) => {
+        e.preventDefault()
+        const formData= new FormData()
+        formData.append('myImage',this.state.image)
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+
+        Axios.post("anime/new",formData,config)
+        .then((response) => {
+            console.log('Sucesso',response)
+        }).catch((error) => {
+            console.error("erro ", error)
+        })
     }
 
     render() {
@@ -42,38 +78,37 @@ export default class AnimeNew extends Component{
                             <Col md={6}>
                                 <div id="secondPart">
                                     
-                                    <input placeholder="Titulo" onChange={e => this.handleTitle(e)}/>
+                                    <Input placeholder="Titulo" onChange={e => this.handleTitle(e)}></Input>
+                                    <Input placeholder="Descrição breve" onChange={e => this.handleLittleDescription(e)}></Input>
+                                    <TextArea placeholder="Descrição" onChange={e => this.handleDescription(e)}>
                                     
-                                    <textarea placeholder="Descrição" onChange={e => this.handleDescription(e)}>
-                                    </textarea> 
+                                    </TextArea>
                                     
                                     <label id="forFile" for='file'>Selecionar um arquivo</label>
                                     <input id='file' type='file' onChange={e => this.previewImage(e)}></input>
-                                    <Button warning>Salvar</Button>
+                                    
+                                    <Button warning size="50%">Salvar</Button>
                                 </div>
                             </Col>
                             <Col md={6}>
                                 <p>
                                     Isso é como vai ficar seu post
                                 </p>
-                            <Card>
-                                <input type="checkbox" />
-                                <input className="input-left" type="checkbox" />
-                                <div className="toggle-left" onClick={e => alert('Link para detalhes do seu post')}>👁</div>
-                                <div className="toggle">+</div>
-                                <div className="imgCard">
-                                    <img src="#" />
-                                </div>
-                                <div className="details">
-                                    <h2>
-                                        {this.state.title}
-                                    </h2>
+                                
+                                <Card large>
+                                    <label>{this.formatDate()}</label>
+                                    <Col md={12}>
+                                    <div className="imgCard" style={{position: 'relative'}}>
+                                        <img className="img-fluid" style={{ position:'relative', widhth: '20%'}}/>
+                                    </div>
+                                    </Col>
+                                        <h4>
+                                            {this.state.title}
+                                        </h4>
 
-                                    <p>{this.state.description}</p>
-
-                                    
-                                </div>
-                            </Card>
+                                        <p>{this.state.littleDescription}</p>
+                                </Card>    
+                            
                             </Col>
                         </Form>
                 </Row>

@@ -38,7 +38,7 @@ export default class SignUp extends Component{
     handleRegister = async (e) => {
     
         e.preventDefault()
-        await api.post('http://localhost:3001/api/auth/register', {
+        await api.post('http://localhost:3001/api/v1/registrations', {
             email: this.state.email,
             name: this.state.name,
             password: this.state.password

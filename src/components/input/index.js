@@ -1,24 +1,62 @@
 import styled, {css} from 'styled-components'
 
 
-export const Input = styled.input`
-
+export const TextArea = styled.textarea`
+            font-size: 12px;
+            color: rgba(0,0,0,.54) !important;
+            line-height: 20px;
+            padding: 3px 6px;
+            letter-spacing: 0;
             width: 100%;
-            font-size: 17px;
-            line-height: 1.5;
-            color: #fff;
-            background-color: #044fa2;
-            border: 10px solid #044fa2;
-            font-weight: bold;
+            background-color: #fff;
+            border: 0.5px solid #f3575e !important;
+            text-transform: uppercase;
             border-radius: 50px;
             margin: 1rem;
             transition: all 0.5s ease;
             outline: none;
             height: 48px;
             padding: 1em;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: initial !important;
+
+            ::placeholder{
+                color: #ddd;
+            }
 
             :focus{
-                border: 3px solid #fff;
+                box-shadow: 0px 0px 1px 1px #f3575e;
+                
+            }
+    
+`
+
+export const Input = styled.input`
+
+            width: 100%;
+            font-size: 17px;
+            line-height: 1.5;
+            color: #fff;
+            background-color: #fff;
+            border: 0.5px solid #f3575e;
+            text-transform: uppercase;
+            border-radius: 50px;
+            margin: 1rem;
+            transition: all 0.5s ease;
+            outline: none;
+            height: 48px;
+            padding: 1em;
+            font-size: 20px;
+            color: rgba(0,0,0,.84);
+            font-style: normal;
+
+            ::placeholder{
+                color: #ddd;
+            }
+
+            :focus{
+                border: 1.5px solid #f3575e;
             }
     
             ${

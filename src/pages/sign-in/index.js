@@ -32,7 +32,7 @@ export default class SignIn extends Component{
 
     handleLogin = async (e) => {
         e.preventDefault()
-        await api.post('http://localhost:3001/api/auth/login', {
+        await api.post('http://localhost:3001/api/v1/sessions', {
             email: this.state.email,
             name: this.state.name,
             password: this.state.password
