@@ -4,7 +4,7 @@ import { HeaderStyled } from './header'
 import { isAuth } from '../../utils/isAuth'
 import { Link } from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faArrowAltCircleRight,faUserCircle} from '@fortawesome/free-regular-svg-icons'
+import {faArrowAltCircleRight,faUserCircle, faListAlt,faBookmark} from '@fortawesome/free-regular-svg-icons'
 
 export default class Header extends Component{
     
@@ -16,12 +16,25 @@ export default class Header extends Component{
             isAuth()? 
             <ul>
                 <li>
-                
-
-                    <Link to="/animes">Animes</Link>
+                    <div className="box">
+                        <div className="icon">
+                            <FontAwesomeIcon icon={faListAlt} />
+                        </div>
+                        <div className="details">
+                            <label><Link to="/animes">Animes</Link></label>
+                        </div>
+                    </div>
                 </li>
+                
                 <li>
-                    <Link to="/animes/new">Criar anime</Link>
+                <div className="box">
+                    <div className="icon">
+                        <FontAwesomeIcon icon={faBookmark} />
+                    </div>
+                    <div className="details">
+                        <label><Link to="/animes/new">Criar Post</Link></label> 
+                    </div>
+                </div>
                 </li>
             </ul>
             :

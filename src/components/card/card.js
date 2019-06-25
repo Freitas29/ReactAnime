@@ -1,105 +1,93 @@
 import styled, {css} from 'styled-components'
 
-export const Card = styled.div`
-    margin-top: 2%;
-    position: relative;
-    width:300px;
-    height:400px;
-    background: #262626;
+
+export const CardBorder = styled.div`
+    position:relative;
+    width: 100%;
+    height: 400px;
+    margin: 20px 0;
     overflow:hidden;
-    border-radius: 1% 3% 1% 3%;
-     
-    input, .toggle{
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        bottom: 50px;
-        right: 50px;
-        outline: none;
-        z-index:10;
-    }
 
-    .input-left, .toggle-left{
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        bottom: 50px;
-        left: 50px;
-        outline: none;
-        z-index:10;
-    }
-
-    input{
-        opacity: 0;
-    }
-
-    .input-left{
-        opacity: 0;
-    }    
-
-    .toggle{
-        pointer-events: none;
-        border-radius: 60%;
-        background: #fff;
-        transition: 0.5s;
-        text-align:center;
-        line-height: 50px;
-        font-size: 36px;
-        box-shadow: 0 0 0 0px #9c27b0;
-    }
-
-    .toggle-left{
-        border-radius: 60%;
-        background: #fff;
-        transition: 0.5s;
-        text-align:center;
-        line-height: 50px;
-        font-size: 36px;
-        box-shadow: 0 0 0 0px #9c27b0;
-    }
-
-    input:checked ~ .toggle{
-        box-shadow: 0 0 0 500px #ff5a5f;
-        transform: rotate(225deg);
-    }
-
-
-    .imgCard, .details{
-        position: absolute;
+    .imgBox{
+        position:absolute;
         top: 0;
         left:0;
         width: 100%;
         height: 100%;
+        background-color:#000;
+        clip-path: circle(300px at center 10px);
+        transition: all 1s ease;
     }
 
-    .details{
-        padding: 20px;
-        box-sizing: border-box;
-        z-index: 11;
-        pointer-events:none;
-        transition: 0.5s;
-        opacity: 0;
-    }
-
-    input:checked ~ .details{
-        opacity: 1;
-        transition-delay: 0.5s;
-    }
-
-    .details h2{
-        margin-bottom: 5px;
-        color:#fff;
-    }
-    
-
-    .details p{
-        margin: 0;
-        padding: 0;
-        color:#fff;
+    .imgBox img{
+        
         width: 100%;
-        overflow-wrap: break-word;
+        border-radius: 5px;
     }
 
 
+    :hover .imgBox{
+        background-color:#5c7ce5;
+        clip-path: circle(100px at center 100px);
+    }
+
+    :hover .imgBox img{
+        position:absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 55%;
+        padding: 20px;
+        text-align:center;
+    }
+
+    .content h2{
+        margin: 13px 0;
+        padding: 0;
+        font-size: 40px;
+        color: #fff;
+        text-transform: capitalize;
+    }
+
+    .content a{
+        text-decoration: none;
+        display: inline-block;
+    }
+
+     .content a, .content p{
+        opacity: 0;
+        transition: all 0.5s ease;
+        transform: translateY(20px)
+    }
+
     
+     .content p{
+        opacity: 0;
+        transition: all 0.5s ease;
+        transform: translateY(20px);
+        font-size: 15px;
+        background-color: #5c7ce5;
+        text-transform: uppercase;
+    }
+
+    
+
+    
+    :hover .content p{
+        border-radius: 5px;
+        opacity: 1;
+        transition: 0.7s;
+        transform: translateY(0px);
+        background-color:#5c7ce5;
+        color:#fff;
+    }
 `
