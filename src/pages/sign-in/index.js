@@ -31,7 +31,7 @@ export default class SignIn extends Component{
     }
 
     handleLogin = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         await api.post('http://localhost:3001/api/v1/sessions', {
             email: this.state.email,
             name: this.state.name,
@@ -71,16 +71,16 @@ export default class SignIn extends Component{
                             <img src="https://image.flaticon.com/icons/svg/145/145859.svg" className="imageBox"/>
 
                                 <div className="inputBox">
-                                    <Input dark placeholder="example@email.com"/>
+                                    <Input dark placeholder="example@email.com" onChange={e => this.handleEmail(e)}/>
                                    
                                 </div>
 
                                 <div className="inputBox">
-                                    <Input dark type="password" placeholder="*******"/>
+                                    <Input dark type="password" placeholder="*******" onChange={e => this.handlePassword(e)}/>
                                     
                                 </div>
 
-                                <Button primary >Entrar</Button>
+                                <Button primary onClick={e => this.handleLogin(e)}>Entrar</Button>
                             </Form>  
                             </div>                      
                         </Col>
