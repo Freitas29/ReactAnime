@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import { HeaderStyled } from './header'
 import { isAuth } from '../../utils/isAuth'
 import { Link } from 'react-router-dom'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faArrowAltCircleRight,faUserCircle} from '@fortawesome/free-regular-svg-icons'
+
 export default class Header extends Component{
     
 
@@ -13,6 +16,8 @@ export default class Header extends Component{
             isAuth()? 
             <ul>
                 <li>
+                
+
                     <Link to="/animes">Animes</Link>
                 </li>
                 <li>
@@ -22,11 +27,27 @@ export default class Header extends Component{
             :
             <ul>
                 <li>
-                    <Link to="/signUp">Cadastrar-se</Link>
+                    <div className="box">
+
+                        <div className="icon">
+                            <FontAwesomeIcon icon={faArrowAltCircleRight} />
+                        </div>
+                        <div className="details">
+                            <label><Link to="/signUp">Cadastrar-se</Link></label>
+                        </div>
+                    </div>
                 </li>
                 
                 <li>
-                <Link to="/signIn">Logar-se</Link>
+                    <div className="box">
+
+                        <div className="icon">
+                            <FontAwesomeIcon icon={faUserCircle} />
+                        </div>
+                        <div className="details">
+                            <label><Link to="/signIn">Logar-se</Link></label>
+                        </div>
+                    </div>
                 </li>
             </ul>  
                 
@@ -34,6 +55,7 @@ export default class Header extends Component{
 
         return(
             <HeaderStyled>
+
                 <div class="logo">
                     <Link to="/">Logo qualquer</Link>
                 </div>
