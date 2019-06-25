@@ -5,6 +5,7 @@ import  Col  from 'react-bootstrap/Col'
 import  Row  from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import { Alert } from '../../components/alert'
+import { Input } from '../../components/input'
 import {Link} from 'react-router-dom'
 import Button from '../../components/button/'
 
@@ -68,46 +69,32 @@ export default class SignUp extends Component{
     
     render(){
         return(
-            <Container fluid>
+            <Container fluid className="d-flex align-itens-center justify-content-center">
                 <Row>
-                    <Form>
-                        
-                        <Col md={6} style={{padding:0}}>
-                        <div id="firstPart">
-                            
-                            <h1>
-                                Registre-se
-                            </h1>          
-                            <p>
-                                Se cadastre para interagir com nossa comunidade
-                            </p>   
-                        </div>
-                        </Col>
-                        <Col md={6}>
-                        <div id="secondPart">
-                            { this.handleAlert() }    
-                               
-                                <div id="fields">
-                                    <div id="field-group">
-                                        <input type="email" placeholder="E-mail" onChange={e => this.handleEmail(e)}/>
-                                    </div>
-                                    <div id="field-group">
-                                        <input type="text" placeholder="Nome" onChange={e => this.handleName(e)}/>
-                                    </div>
-                                    <div id="field-group">
-                                        <input type="password" placeholder="*******" onChange={e => this.handlePassword(e)}/>
-                                        
-                                    </div>
+                    <Col md={12}>
+                        <div className="box">
+                        <Form>
+                        <img src="https://image.flaticon.com/icons/svg/145/145859.svg" className="imageBox"/>
 
-                                    <Button dark onClick={e => this.handleRegister(e)}>Registrar-se</Button>
-                                    
-                                    <Link to="signIn/">
-                                        <Button warning>Entrar</Button>
-                                    </Link>
-                                </div>
-                            </div>    
-                        </Col>
-                    </Form>
+                            <div className="inputBox">
+                                <Input dark placeholder="example@email.com"/>
+                                <span ><i className="fa fa-user" aria-hidden="true"></i></span>
+                            </div>
+
+                            <div className="inputBox">
+                                <Input dark placeholder="Ereeenn"/>
+                                <span ><i className="fa fa-user" aria-hidden="true"></i></span>
+                            </div>
+
+                            <div className="inputBox">
+                                <Input dark type="password" placeholder="*******"/>
+                                <span ><i className="fa fa-lock" aria-hidden="true"></i></span>
+                            </div>
+
+                            <Button primary >Cadastrar</Button>
+                        </Form>  
+                        </div>                      
+                    </Col>
                 </Row>
             </Container>
         )

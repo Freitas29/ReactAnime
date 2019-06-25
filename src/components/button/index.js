@@ -5,7 +5,6 @@ const Button = styled.button`
     border-radius: 4px;
     color: white;
     border:none;
-    margin: 0 1em;
     padding: 0.50em 1.2em;
     font-size: 14px;
     line-height: 1;
@@ -13,7 +12,7 @@ const Button = styled.button`
     transition-duration: .3s;
     border-width: 0;
     letter-spacing: 2px;
-    width: ${props => props.size || '20%'};
+    width: ${props => props.size || '100%'};
     text-transform: uppercase;
     white-space: normal;
 

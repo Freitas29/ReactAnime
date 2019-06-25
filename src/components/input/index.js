@@ -40,12 +40,11 @@ export const Input = styled.input`
             color: #fff;
             background-color: #fff;
             border: 0.5px solid #f3575e;
-            text-transform: uppercase;
             border-radius: 50px;
-            margin: 1rem;
+            margin: 1em 0;
             transition: all 0.5s ease;
             outline: none;
-            height: 48px;
+            height: 1px;
             padding: 1em;
             font-size: 20px;
             color: rgba(0,0,0,.84);
@@ -58,24 +57,6 @@ export const Input = styled.input`
             :focus{
                 border: 1.5px solid #f3575e;
             }
-    
-            ${
-            props => props.noBorderPrimaryMd && css`
-                border:none;
-                font-weight: 100;
-                font-size: 12px
-                width: 90%;
-                border-bottom: 0.1px solid #ddd;
-                background-color: transparent;
-                color: #fff;
-                border-radius: 0%;
-                
-            :focus{
-                    border:none;
-                    border-bottom: 0.1px solid #ddd;
-                }
-            ` 
-            }
 
 
     ${
@@ -83,12 +64,14 @@ export const Input = styled.input`
       background-color: rgb(25,25,25);
       border: 10px solid rgb(25,25,25);
       color: #fff;
-        
-      
 
       :focus{
-                border-bottom: 3px solid #fff;
+                border-bottom: 3px solid #ddd;
         }
+
+        ::placeholder{
+                color: #484848;
+            }
     ` 
     }
 

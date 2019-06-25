@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 
 export const HeaderStyled  = styled.header`
+    background-color: #000 !important;
     width: 100%;
     display:flex;
     min-height: 70px;
@@ -15,7 +16,7 @@ export const HeaderStyled  = styled.header`
     font-size: 17px;
     line-height: 36px;
     color: #484848;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px; */
 
     .links{
         width:50%;

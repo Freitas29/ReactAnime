@@ -63,35 +63,28 @@ export default class SignIn extends Component{
 
     render(){
         return(
-            <Container fluid>
+            <Container fluid className="d-flex align-itens-center justify-content-center">
                     <Row>
-                        <Col md={6}>
-                        <Form>
-                        <div id="formBorder">    
-                            <div className="form-body">
+                        <Col md={12}>
+                            <div className="box">
+                            <Form>
+                            <img src="https://image.flaticon.com/icons/svg/145/145859.svg" className="imageBox"/>
 
-                            <Input type="email" noBorderPrimaryMd placeholder="E-mail" onChange={e => this.handleEmail(e)}/>
-                
-                            <Input type="password" noBorderPrimaryMd onChange={e => this.handlePassword(e)}/>
-                        </div>
-                        
-                            <div className="actions">                            
-                                <Button dark onClick={e => this.handleLogin(e)}>Entrar</Button>
+                                <div className="inputBox">
+                                    <Input dark placeholder="example@email.com"/>
+                                    <span ><i className="fa fa-user" aria-hidden="true"></i></span>
+                                </div>
 
-                                <Link to="signUp/">                                    
-                                    <Button warning>Registrar-se</Button>
-                                </Link>
-                            </div>
-                            
-                        </div>
-                        </Form>
-                        </Col>
+                                <div className="inputBox">
+                                    <Input dark type="password" placeholder="*******"/>
+                                    <span ><i className="fa fa-lock" aria-hidden="true"></i></span>
+                                </div>
 
-                        <Col md={6}>
-                            aakdlasçkd
+                                <Button primary >Entrar</Button>
+                            </Form>  
+                            </div>                      
                         </Col>
                     </Row>
-                
             </Container>
         )
     }
