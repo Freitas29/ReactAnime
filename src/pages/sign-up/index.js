@@ -6,7 +6,8 @@ import  Row  from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import { Alert } from '../../components/alert'
 import { Input } from '../../components/input'
-import {Link} from 'react-router-dom'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faUser} from '@fortawesome/free-regular-svg-icons'
 import Button from '../../components/button/'
 
 export default class SignUp extends Component{
@@ -78,17 +79,17 @@ export default class SignUp extends Component{
 
                             <div className="inputBox">
                                 <Input dark placeholder="example@email.com"/>
-                                <span ><i className="fa fa-user" aria-hidden="true"></i></span>
+                                
                             </div>
 
                             <div className="inputBox">
                                 <Input dark placeholder="Ereeenn"/>
-                                <span ><i className="fa fa-user" aria-hidden="true"></i></span>
+                                
                             </div>
 
                             <div className="inputBox">
                                 <Input dark type="password" placeholder="*******"/>
-                                <span ><i className="fa fa-lock" aria-hidden="true"></i></span>
+                                
                             </div>
 
                             <Button primary >Cadastrar</Button>

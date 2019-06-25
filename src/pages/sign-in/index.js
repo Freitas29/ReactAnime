@@ -72,12 +72,12 @@ export default class SignIn extends Component{
 
                                 <div className="inputBox">
                                     <Input dark placeholder="example@email.com"/>
-                                    <span ><i className="fa fa-user" aria-hidden="true"></i></span>
+                                   
                                 </div>
 
                                 <div className="inputBox">
                                     <Input dark type="password" placeholder="*******"/>
-                                    <span ><i className="fa fa-lock" aria-hidden="true"></i></span>
+                                    
                                 </div>
 
                                 <Button primary >Entrar</Button>
