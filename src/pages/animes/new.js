@@ -58,7 +58,8 @@ export default class AnimeNew extends Component{
         formData.append('myImage',this.state.image)
         const config = {
             headers: {
-                'content-type': 'multipart/form-data'
+                'content-type': 'multipart/form-data',
+                authorization: "Bearer "+localStorage.getItem('current_user')
             }
         }
 

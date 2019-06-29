@@ -4,6 +4,7 @@ import Container  from 'react-bootstrap/Container'
 import Button from '../../components/button'
 import Col  from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import {Link} from 'react-router-dom'
 import api from '../../services/api'
 import './index.css'
 import { CardBorder } from '../../components/card/card';
@@ -13,9 +14,7 @@ export default class extends Component{
     };
 
     async componentDidMount() {
-        const response = await api.get(`http://localhost:3001/api/v1/animes`,{
-            headers: {authorization: "Bearer "+localStorage.getItem('current_user') }
-        })
+        const response = await api.get(`http://localhost:3001/api/v1/animes`)
         this.setState({animes: response.data})
         console.log(response.data)
     }
@@ -27,21 +26,7 @@ export default class extends Component{
     render() {
 
         const animesList = this.state.animes.map( anime => 
-            // <Col md={4}>
-            //     <Card large>
-            //         <label>{this.formatDate(anime.createdAt)}</label>
-            //         <div className="image-card">
-            //             <img className="img-fluid" src={anime.file.url} />
-            //         </div>
-            //             <h4>
-            //                 {anime.title}
-            //             </h4>
-
-            //             <p>{anime.description}</p>
-            //         <Button size="60%">Ver detalhes</Button>
-            //</Card>        
-            //</Col>    
-                    <Col md={4}>
+                    <Col md={3}>
                         <CardBorder>
                             <div className="imgBox">
                                 <img src={anime.file.url}/>
@@ -54,7 +39,7 @@ export default class extends Component{
                                     {anime.description}
                                 </p>
 
-                                <Button dark>Ver mais</Button>
+                                <Link to={`/animes/${anime.id}`}><Button dark>Ver mais</Button></Link>
                                 
                             </div>
 
@@ -67,10 +52,6 @@ export default class extends Component{
             <Container fluid>
                 <Row>
                     {animesList}
-                </Row>
-
-                <Row>
-                    
                 </Row>
         </Container>
         )

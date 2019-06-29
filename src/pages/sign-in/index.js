@@ -42,7 +42,7 @@ export default class SignIn extends Component{
             }else{
                 console.log("Resposta",response)
                 this.props.history.push("/animes")
-                localStorage.setItem("current_user",response.data.token)
+                localStorage.setItem("current_user",response.data.authentication_token)
             }
         }).catch((response) => {
             console.log(response)

@@ -7,8 +7,11 @@ export const CardBorder = styled.div`
     height: 400px;
     margin: 20px 0;
     overflow:hidden;
+    border-radius: 15px;
+    padding: 5px 5px;
 
     .imgBox{
+        padding: 5px;
         position:absolute;
         top: 0;
         left:0;
@@ -20,15 +23,15 @@ export const CardBorder = styled.div`
     }
 
     .imgBox img{
-        
         width: 100%;
         border-radius: 5px;
     }
 
 
     :hover .imgBox{
+        position:absolute;
         background-color:#5c7ce5;
-        clip-path: circle(100px at center 100px);
+        clip-path: circle(0px at center 100px);
     }
 
     :hover .imgBox img{
@@ -48,6 +51,7 @@ export const CardBorder = styled.div`
         height: 55%;
         padding: 20px;
         text-align:center;
+        transition: all 2.5s ease;
     }
 
     .content h2{
@@ -64,8 +68,9 @@ export const CardBorder = styled.div`
     }
 
      .content a, .content p{
-        opacity: 0;
+        opacity: 1;
         transition: all 0.5s ease;
+        margin-bottom: 65px;
         transform: translateY(20px)
     }
 
@@ -89,5 +94,11 @@ export const CardBorder = styled.div`
         transform: translateY(0px);
         background-color:#5c7ce5;
         color:#fff;
+    }
+
+    :hover .content{
+        position: absolute;
+        left: 0;
+        top:0px;
     }
 `
